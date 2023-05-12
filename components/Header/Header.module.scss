@@ -1,0 +1,56 @@
+@import "@styles/variables.scss";;
+
+.headerWrapper {
+	height: 100%;
+}
+
+.headerButton {
+	display: flex;
+	gap: 8px;
+}
+
+.menuWrapper {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	color: $site_color_2;
+	cursor: pointer;
+}
+
+.menuContent {
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+}
+
+.header {
+	margin: 0 auto;
+	height: 100%;
+	max-width: $contentWidth;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+
+	@media (max-width: $xl) {
+		padding: 0 20px;
+	}
+}
+
+.logo {
+	color: $site_color_2;
+	font-size: 32px;
+	cursor: pointer;
+
+	@media (max-width: $middle) {
+		font-size: 24px;
+	}
+}
+
+.profileIcon svg path {
+	fill: $site_color_2;
+}
+
+.profileIcon svg {
+	width: 24px;
+	height: 24px;
+}

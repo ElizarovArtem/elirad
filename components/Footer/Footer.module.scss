@@ -1,0 +1,33 @@
+@import "@styles/variables.scss";
+
+.footer {
+	background: $site_color_1;
+	color: $site_color_2;
+	padding: 24px;
+	max-width: $contentWidth;
+	margin: 0 auto;
+	display: flex;
+	justify-content: space-between;
+
+	.logoSection {
+		justify-content: flex-end;
+		align-items: flex-end;
+	}
+
+	.footerItem {
+		display: flex;
+		flex-direction: column;
+		gap: 20px;
+		flex: 1;
+
+		.itemContent {
+			display: flex;
+			flex-direction: column;
+			gap: 16px;
+
+			&.socials {
+				flex-direction: row;
+			}
+		}
+	}
+}

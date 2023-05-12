@@ -1,0 +1,18 @@
+@import "@styles/variables.scss";
+
+.ordersList {
+	padding: 24px;
+	background: white;
+	border-radius: 24px;
+}
+
+.filterWrapper {
+	margin-bottom: 24px;
+	display: flex;
+	justify-content: flex-end;
+	gap: 24px;
+
+	@media (max-width: $middle) {
+		flex-direction: column;
+	}
+}

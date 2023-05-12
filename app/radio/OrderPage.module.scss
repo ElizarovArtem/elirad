@@ -1,0 +1,15 @@
+@import "@styles/variables.scss";;
+
+.main {
+	position: relative;
+	max-width: $contentWidth;
+	background: white;
+	box-shadow: 0 0.25em 0.3125em rgba(0, 0, 0, 0.12);
+	border-radius: 8px;
+	margin: 20px auto;
+	//min-height: calc(100vh - $header_height - 40px - 128px);
+}
+
+.list {
+	padding: 20px;
+}

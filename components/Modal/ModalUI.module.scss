@@ -1,0 +1,59 @@
+@import "@styles/variables.scss";
+
+.modal {
+  div[class*=ant-modal-content] {
+    padding: 46px 24px 20px;
+    background: $site_color_4;
+  }
+
+  div[class*=ant-modal-title] {
+    background: $site_color_4;
+  }
+
+  span[class*=ant-upload-wrapper] {
+    width: auto;
+  }
+}
+
+.modalContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+
+  button {
+    padding: 0 40px;
+    height: 38px;
+
+    &:not(:disabled):hover, &:focus {
+      color: $site_color_2;
+      border-color: $site_color_2;
+    }
+  }
+
+  input {
+    width: 250px;
+    height: 48px;
+    font-size: 18px;
+
+    &:hover, &:focus {
+      border-color: $site_color_2;
+    }
+  }
+
+  textarea {
+    width: 250px;
+    font-size: 18px;
+    resize: none;
+
+    &:hover, &:focus {
+      border-color: $site_color_2;
+    }
+  }
+}
+
+.error {
+  color: red;
+  font-weight: 500;
+}
