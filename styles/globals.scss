@@ -1,0 +1,39 @@
+@import "@styles/variables.scss";;
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	padding: 0;
+	margin: 0;
+	background: $site_color_4;
+}
+
+a {
+	color: inherit;
+	text-decoration: none;
+}
+
+.mainLayout {
+	max-width: $contentWidth;
+	margin: 0 auto;
+
+	@media (max-width: $xl) {
+		padding: 0 20px;
+	}
+}
+
+.headerBackground {
+	width: 100%;
+	height: 100px;
+	position: sticky;
+	top: 0;
+	background: $site_color_1;
+	z-index: 1000;
+}
+
+.footerBackground {
+	width: 100%;
+	background: $site_color_1;
+}
