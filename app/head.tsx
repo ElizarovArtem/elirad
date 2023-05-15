@@ -11,10 +11,7 @@ export default function Head() {
 				content="Доставка товаров непосредственно с заводов-производителей из Китая по сниженным ценам."
 				key="description"
 			/>
-			<meta
-				content="width=device-width, initial-scale=1"
-				name="viewport"
-			/>
+			<meta content="width=device-width, initial-scale=1" name="viewport" />
 			<link rel="icon" href="/favicon.ico" />
 		</>
 	);
