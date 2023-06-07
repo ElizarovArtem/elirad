@@ -26,7 +26,7 @@ const OrderCardList: React.FC<TOrderCardProps> = () => {
 	useEffect(() => {
 		getOrders();
 	}, []);
-	console.log(isMobile);
+
 	return (
 		<>
 			<Row gutter={[24, 24]}>

@@ -1,3 +1,5 @@
+'use client';
+
 import { useEffect, useState } from 'react';
 import useDebounce from './useDebounce';
 
@@ -8,9 +10,16 @@ type TUseResizeObserverProps = {
 const useResizeObserver = ({ delay = 300 }: TUseResizeObserverProps = {}) => {
 	const debounce = useDebounce(delay);
 	const [size, setSize] = useState({
-		width: window.screen.width,
-		height: window.screen.height,
+		width: 0,
+		height: 0,
 	});
+
+	useEffect(() => {
+		setSize({
+			width: window.screen.width,
+			height: window.screen.height,
+		});
+	}, []);
 
 	useEffect(() => {
 		const onSizeChange = async () => {
