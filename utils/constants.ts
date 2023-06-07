@@ -21,7 +21,7 @@ export const RoutesPermissions: Record<
 	'/': { forRoles: [UserRoles.USER, UserRoles.ADMIN, UserRoles.UNAUTHORIZED] },
 	'/radio': { forRoles: [UserRoles.USER, UserRoles.ADMIN] },
 	'/lk/orders-list': {
-		forRoles: [UserRoles.USER, UserRoles.ADMIN, UserRoles.UNAUTHORIZED],
+		forRoles: [UserRoles.USER, UserRoles.ADMIN],
 	},
 };
 

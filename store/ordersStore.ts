@@ -18,6 +18,7 @@ interface IOrdersStore {
 	orders: TOrder[];
 	error: string;
 	isCreateOrderModalOpen: boolean;
+	getOrders: () => void;
 	createOrder: (data: CreateOrderPayload) => Promise<any>;
 	createOrderFromMainPage: (
 		data: CreateOrderFromMainPagePayload,
@@ -33,6 +34,13 @@ export const useOrdersStore = create<IOrdersStore>((set) => ({
 	error: '',
 	isCreateOrderModalOpen: false,
 	isLoading: false,
+	getOrders: async () => {
+		set({ isLoading: true });
+
+		const res = await axiosInstance.get('orders/list');
+
+		set({ isLoading: false, orders: res.data.data });
+	},
 	createOrder: async (data) => {
 		set({ isLoading: true });
 

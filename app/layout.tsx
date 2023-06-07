@@ -17,7 +17,7 @@ export default function RootLayout({
 	return (
 		<html>
 			<head />
-			<body className={archivo.className}>
+			<body className={classNames(archivo.className)}>
 				<AuthGuard>
 					<div className={classNames('headerBackground')}>
 						<Header />

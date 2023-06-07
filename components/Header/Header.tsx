@@ -5,10 +5,11 @@ import classNames from 'classnames';
 import { Popover } from 'antd';
 import { LogoutOutlined, UserOutlined } from '@ant-design/icons';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import IconProfileOutline from '@/icons/ProfileIcon';
 import { useAuthStore } from '@/store/authStore';
-import { MENU_ROUTES } from '@/utils/constants';
-import { useIsMobile } from '@/utils/useIsMobile';
+import { MENU_ROUTES, Routes } from '@/utils/constants';
+import useIsMobile from '@/utils/useIsMobile';
 import style from './Header.module.scss';
 
 type Props = {
@@ -18,6 +19,7 @@ type Props = {
 const HeaderComponent: React.FC<Props> = ({ className }) => {
 	const { phone: isProfile, role, logout, setIsAuthModalOpen } = useAuthStore();
 	const isMobile = useIsMobile();
+	const { push } = useRouter();
 
 	const menuContent = (
 		<div className={style.menuContent}>
@@ -29,10 +31,16 @@ const HeaderComponent: React.FC<Props> = ({ className }) => {
 		</div>
 	);
 
+	const onLogoClick = () => {
+		push(Routes.radio);
+	};
+
 	return (
 		<div className={classNames(style.headerWrapper, className)}>
 			<div className={style.header}>
-				<div className={classNames(style.logo)}>ЄLIRAD</div>
+				<div className={classNames(style.logo)} onClick={onLogoClick}>
+					ЄLIRAD
+				</div>
 				{isProfile ? (
 					<div className={style.menuWrapper}>
 						<Popover

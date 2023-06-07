@@ -1,31 +1,37 @@
 'use client';
 
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { Card, Row, Col } from 'antd';
 import { TOrder } from '@/types/orders';
 import OrderInfoModal from '@/components/OrderInfoModal/OrderInfoModal';
 
 import getConfig from '@/utils/getConfig';
+import { useOrdersStore } from '@/store/ordersStore';
+import useIsMobile from '@/utils/useIsMobile';
 import style from './OrderCard.module.scss';
 
 const { Meta } = Card;
 
-type TOrderCardProps = {
-	orders: TOrder[];
-};
+type TOrderCardProps = {};
 
-const OrderCardList: React.FC<TOrderCardProps> = ({ orders = [] }) => {
+const OrderCardList: React.FC<TOrderCardProps> = () => {
 	const [openedOrder, setOpenedOrder] = useState<TOrder | null>(null);
+	const { orders, getOrders } = useOrdersStore();
+	const isMobile = useIsMobile();
 
 	const onModalClose = useCallback(() => {
 		setOpenedOrder(null);
 	}, []);
 
+	useEffect(() => {
+		getOrders();
+	}, []);
+	console.log(isMobile);
 	return (
 		<>
 			<Row gutter={[24, 24]}>
 				{orders.map((order) => (
-					<Col span={8} key={order._id}>
+					<Col span={isMobile ? 24 : 8} key={order._id}>
 						<Card
 							className={style.card}
 							hoverable

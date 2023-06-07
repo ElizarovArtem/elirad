@@ -28,6 +28,16 @@
 			&.socials {
 				flex-direction: row;
 			}
+
+			@media (max-width: $middle) {
+				align-items: center;
+			}
 		}
+	}
+
+	@media (max-width: $middle) {
+		flex-direction: column;
+		align-items: center;
+		gap: 20px;
 	}
 }

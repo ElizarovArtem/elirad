@@ -11,6 +11,7 @@ import { TOrder } from '@/types/orders';
 import UpdateOrderModal from '@/components/lk/UpdateOrderModal/UpdateOrderModal';
 import LkOrederItem from '@/components/lk/LkOrdersList/components/LkOrederItem/LkOrederItem';
 import { statusesOptions } from '@/components/lk/constants';
+import { useAuthStore } from '@/store/authStore';
 import style from './LkOrdersList.module.scss';
 
 const { RangePicker } = DatePicker;
@@ -23,6 +24,7 @@ type RangeValue = [Dayjs | null, Dayjs | null] | null;
 
 function LkOrdersList({ searchParams }: TLkOrdersListProps) {
 	const { getOrders, orders } = useLkStore();
+	const { _id } = useAuthStore();
 	const [selectedOrder, setSelectedOrder] = useState<TOrder | null>(null);
 	const [dates, setDates] = useState<RangeValue>([
 		searchParams.dateFrom ? dayjs(new Date(searchParams.dateFrom)) : null,
@@ -71,8 +73,10 @@ function LkOrdersList({ searchParams }: TLkOrdersListProps) {
 	};
 
 	useEffect(() => {
-		getOrders(searchParams).then();
-	}, [searchParams]);
+		if (_id) {
+			getOrders(searchParams).then();
+		}
+	}, [searchParams, _id]);
 
 	return (
 		<>
