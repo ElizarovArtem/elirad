@@ -41,7 +41,7 @@ export const useLkStore = create<ILkStore>((set, getState) => ({
 		set({ messages: [...getState().messages, message], chatLoading: true });
 
 		const response = await axios.get(
-			`http://localhost:5300/chatGpt/chat?message=${getState().messages.join(
+			`${getConfig().apiUrl}/chatGpt/chat?message=${getState().messages.join(
 				';',
 			)}`,
 		);
