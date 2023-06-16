@@ -6,7 +6,7 @@ import { useRouter } from 'next/navigation';
 import ModalUi from '@/components/Modal/ModalUI';
 import { useOrdersStore } from '@/store/ordersStore';
 import { CreateOrderPayload } from '@/types/orders';
-import UploadUi from '@/components/UiUpload/UploadUi';
+import UiUpload from '@/components/UiUpload/UiUpload';
 import { Routes } from '@/utils/constants';
 import style from './CreateOrderModal.module.scss';
 
@@ -33,7 +33,7 @@ function CreateOrderModal() {
 				className={style.form}
 				ref={formRef}
 			>
-				<UploadUi isFormItem />
+				<UiUpload isFormItem />
 				<Form.Item
 					label="Название изделия"
 					name="name"

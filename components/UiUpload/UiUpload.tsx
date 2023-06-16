@@ -22,7 +22,7 @@ type TUploadUiProps = {
 	isFormItem?: boolean;
 };
 
-function UploadUi({ isFormItem, uploadProps, formItemProps }: TUploadUiProps) {
+function UiUpload({ isFormItem, uploadProps, formItemProps }: TUploadUiProps) {
 	const [loading, setLoading] = useState(false);
 	const [imageUrl, setImageUrl] = useState<string>();
 
@@ -41,12 +41,19 @@ function UploadUi({ isFormItem, uploadProps, formItemProps }: TUploadUiProps) {
 		}
 	};
 
+	const dummyRequest = ({ onSuccess }: any) => {
+		setTimeout(() => {
+			onSuccess('ok');
+		}, 0);
+	};
+
 	const upload = (
 		<Upload
 			name="devicePicture"
 			listType="picture-card"
 			showUploadList={false}
 			onChange={handleChange}
+			customRequest={dummyRequest}
 			{...uploadProps}
 		>
 			{imageUrl ? (
@@ -75,4 +82,4 @@ function UploadUi({ isFormItem, uploadProps, formItemProps }: TUploadUiProps) {
 	);
 }
 
-export default UploadUi;
+export default UiUpload;

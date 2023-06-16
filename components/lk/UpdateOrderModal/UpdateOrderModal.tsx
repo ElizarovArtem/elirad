@@ -2,7 +2,7 @@ import React, { memo, useEffect } from 'react';
 import { Button, Checkbox, Form, Input, Select } from 'antd';
 import ModalUI from '@/components/Modal/ModalUI';
 import { IUpdateOrder, TOrder } from '@/types/orders';
-import UploadUi from '@/components/UiUpload/UploadUi';
+import UiUpload from '@/components/UiUpload/UiUpload';
 import { statusesOptions } from '@/components/lk/constants';
 import { useOrdersStore } from '@/store/ordersStore';
 
@@ -53,7 +53,7 @@ const UpdateOrderModal = memo(function UpdateOrderModal({
 	return (
 		<ModalUI open={!!order} title="Обновление заказа" onCancel={onCancel}>
 			<Form layout="vertical" onFinish={onFinish} form={form}>
-				<UploadUi isFormItem />
+				<UiUpload isFormItem />
 				<Form.Item label="Название изделия" name="name">
 					<Input placeholder="Название изделия" />
 				</Form.Item>

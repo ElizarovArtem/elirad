@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useCallback, useEffect, useState } from 'react';
-import { Card, Row, Col } from 'antd';
+import { Card, Row, Col, Spin } from 'antd';
 import { TOrder } from '@/types/orders';
 import OrderInfoModal from '@/components/OrderInfoModal/OrderInfoModal';
 
@@ -16,7 +16,7 @@ type TOrderCardProps = {};
 
 const OrderCardList: React.FC<TOrderCardProps> = () => {
 	const [openedOrder, setOpenedOrder] = useState<TOrder | null>(null);
-	const { orders, getOrders } = useOrdersStore();
+	const { orders, getOrders, isLoading } = useOrdersStore();
 	const isMobile = useIsMobile();
 
 	const onModalClose = useCallback(() => {
@@ -26,6 +26,14 @@ const OrderCardList: React.FC<TOrderCardProps> = () => {
 	useEffect(() => {
 		getOrders();
 	}, []);
+
+	if (isLoading) {
+		return (
+			<div className={style.loading}>
+				<Spin />
+			</div>
+		);
+	}
 
 	return (
 		<>
